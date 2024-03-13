@@ -2,7 +2,7 @@ package db;
 import model.*;
 
 public class CustomerDAO {
-	private ConnectDB customerDB;
+	private ConnectDB connectDB;
 	
 	public CustomerDAO() {
 		// TODO Auto-generated constructor stub
