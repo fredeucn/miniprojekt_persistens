@@ -7,7 +7,7 @@ public class Customer {
 	private String city;
 	private String phoneNumber;
 	private String type;
-	
+
 	public Customer(String name, String address, String zipCode, String city, String phoneNumber, String type) {
 		this.setName(name);
 		this.setAddress(address);
