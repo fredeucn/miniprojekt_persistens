@@ -3,10 +3,13 @@ import db.*;
 import model.*;
 
 public class StockController {
-	private StockDAO stockDAO;
+	private StockDB stockDB;
 	
-	public StockController() {
-		// TODO Auto-generated constructor stub
+	public StockController() throws DataAccessException {
+		stockDB = new StockDB();
 	}
 	
+	public Product findProduct(int barcode, int amount, String stockName) throws DataAccessException {
+		return stockDB.findProduct(barcode, amount, stockName);
+	}
 }

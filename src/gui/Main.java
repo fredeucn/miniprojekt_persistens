@@ -1,20 +1,22 @@
 package gui;
 
+import java.sql.SQLException;
+
+import controller.OrderController;
 import db.CustomerDB;
 import db.DataAccessException;
 import db.StockDB;
 import model.Customer;
+import model.OrderLine;
 import model.Product;
 
 public class Main {
-	public static void main(String[] args) throws DataAccessException {
+	public static void main(String[] args) throws DataAccessException, SQLException {
 		
-		CustomerDB customerDB = new CustomerDB();
-		Customer customer = customerDB.findCustomer("10203040");
-		System.out.println(customer.toString());
-		
-		StockDB stockDB = new StockDB();
-		Product product = stockDB.findProduct(1, 2, "Garage");
-		System.out.println(product.toString());
+		OrderController orderController = new OrderController();
+		orderController.createOrder();
+		orderController.addCustomer("10203040");
+		orderController.addProduct(1, 2, "Garage");
+		orderController.finishOrder();
 	}
 }

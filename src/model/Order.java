@@ -1,6 +1,7 @@
 package model;
 import java.time.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Order {
 	private LocalDate date;
@@ -8,13 +9,11 @@ public class Order {
 	private LocalDate deliveryDate;
 	private int orderId;
 	private ArrayList<OrderLine> orderLines;
-	
-	public Order(LocalDate date, String deliveryStatus, LocalDate deliveryDate, int orderId) {
-		// TODO Auto-generated constructor stub
-		this.setDate(date);
-		this.setDeliveryStatus(deliveryStatus);
-		this.setDeliveryDate(deliveryDate);
-		this.setOrderId(orderId);
+	private Customer customer;
+
+	public Order() {
+		this.setDeliveryStatus("pending");
+		orderLines = new ArrayList<OrderLine>();
 	}
 
 	public LocalDate getDate() {
@@ -53,7 +52,21 @@ public class Order {
 		return orderLines;
 	}
 
-	public void setOrderLines(ArrayList<OrderLine> orderLines) {
-		this.orderLines = orderLines;
+	public void addOrderLine(OrderLine orderLine) {
+		orderLines.add(orderLine);
+	}
+	
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	@Override
+	public String toString() {
+		return "Order [date=" + date + ", deliveryStatus=" + deliveryStatus + ", deliveryDate=" + deliveryDate
+				+ ", orderId=" + orderId + ", orderLines=" + orderLines + ", customer=" + customer + "]";
 	}
 }

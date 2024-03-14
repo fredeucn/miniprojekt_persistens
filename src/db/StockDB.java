@@ -43,7 +43,7 @@ public class StockDB implements StockDAO {
 					updateStock.setInt(1, amount);
 					updateStock.setInt(2, barcode);
 					updateStock.setString(3, stockName);
-					updateStock.executeQuery();
+					updateStock.executeUpdate();
 				}
 			}
 			return product;
