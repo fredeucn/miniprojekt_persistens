@@ -7,16 +7,16 @@ package model;
 		private float rentPrice;
 		private String countryOfOrigin;
 		private int minStock;
-		private int id;
+		private int barcode;
 		
-	public Product(String name, float purchasePrice, float salesPrice, float rentPrice, String countryOfOrigin, int minStock, int id) {
+	public Product(String name, float purchasePrice, float salesPrice, float rentPrice, String countryOfOrigin, int minStock, int barcode) {
 		this.setName(name);
 		this.setPurchasePrice(purchasePrice);
 		this.setSalesPrice(salesPrice);
 		this.setRentPrice(rentPrice);
 		this.setCountryOfOrigin(countryOfOrigin);
 		this.setMinStock(minStock);
-		this.setId(id);
+		this.setBarcode(barcode);
 	}
 
 	public String getName() {
@@ -67,13 +67,18 @@ package model;
 		this.minStock = minStock;
 	}
 
-	public int getId() {
-		return id;
+	public int getBarcode() {
+		return barcode;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setBarcode(int barcode) {
+		this.barcode = barcode;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Product [name=" + name + ", purchasePrice=" + purchasePrice + ", salesPrice=" + salesPrice
+				+ ", rentPrice=" + rentPrice + ", countryOfOrigin=" + countryOfOrigin + ", minStock=" + minStock
+				+ ", barcode=" + barcode + "]";
+	}
 }

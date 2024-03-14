@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Customer {
 	private String name;
 	private String address;
@@ -63,5 +65,11 @@ public class Customer {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [name=" + name + ", address=" + address + ", zipCode=" + zipCode + ", city=" + city
+				+ ", phoneNumber=" + phoneNumber + ", type=" + type + "]";
 	}
 }
