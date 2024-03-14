@@ -76,6 +76,38 @@ package model;
 	}
 
 	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Product other = (Product) obj;
+		if (barcode != other.barcode)
+			return false;
+		if (countryOfOrigin == null) {
+			if (other.countryOfOrigin != null)
+				return false;
+		} else if (!countryOfOrigin.equals(other.countryOfOrigin))
+			return false;
+		if (minStock != other.minStock)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (Float.floatToIntBits(purchasePrice) != Float.floatToIntBits(other.purchasePrice))
+			return false;
+		if (Float.floatToIntBits(rentPrice) != Float.floatToIntBits(other.rentPrice))
+			return false;
+		if (Float.floatToIntBits(salesPrice) != Float.floatToIntBits(other.salesPrice))
+			return false;
+		return true;
+	}
+
+	@Override
 	public String toString() {
 		return "Product [name=" + name + ", purchasePrice=" + purchasePrice + ", salesPrice=" + salesPrice
 				+ ", rentPrice=" + rentPrice + ", countryOfOrigin=" + countryOfOrigin + ", minStock=" + minStock

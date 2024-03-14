@@ -22,7 +22,6 @@ public class OrderController {
 		currentOrder = new Order();
 	}
 	
-	// this needs to be fixed, it is not merging order lines
 	public void addProduct(int barcode, int amount, String stockName) throws DataAccessException {
 		Product product = stockController.findProduct(barcode, amount, stockName);
 		

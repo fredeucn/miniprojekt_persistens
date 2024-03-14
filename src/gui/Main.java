@@ -17,6 +17,7 @@ public class Main {
 		orderController.createOrder();
 		orderController.addCustomer("10203040");
 		orderController.addProduct(1, 2, "Garage");
+		orderController.addProduct(1, 1, "Garage");
 		orderController.finishOrder();
 	}
 }
