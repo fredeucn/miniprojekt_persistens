@@ -22,6 +22,10 @@ public class OrderController {
 		currentOrder = new Order();
 	}
 	
+	public Order getOrder() {
+		return currentOrder;
+	}
+	
 	public void addProduct(int barcode, int amount, String stockName) throws DataAccessException {
 		Product product = stockController.findProduct(barcode, amount, stockName);
 		
