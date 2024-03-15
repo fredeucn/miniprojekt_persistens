@@ -15,7 +15,8 @@ public class OrderDB implements OrderDAO {
 			+ "(?, ?);";
 	private static final String insertOrderLineQuery = "INSERT INTO order_lines(product_barcode, order_id, amount) VALUES"
 			+ "(?, ?, ?);";
-	private static final String insertInvoiceQuery = "bla bla bla";
+	private static final String insertInvoiceQuery = "INSERT INTO invoices(order_id, is_paid) VALUES"
+			+ "(?, ?);";
 	private PreparedStatement insertOrder, insertOrderLine, insertInvoice;
 
 	public OrderDB() throws DataAccessException {
@@ -43,6 +44,11 @@ public class OrderDB implements OrderDAO {
 			success = false;
 		}
 		
+		// check if order is already finished
+		if (order.getDeliveryStatus() == "finished") {
+			success = false;
+		}
+		
 		// insert into database if order is valid
 		if (success) {
 			// run insert order into database get generated ID key
@@ -66,6 +72,9 @@ public class OrderDB implements OrderDAO {
 			}
 			
 			// run insert invoice using generated order ID key
+			insertInvoice.setInt(1, order.getOrderId());
+			insertInvoice.setBoolean(2, true);
+			insertInvoice.executeUpdate();
 		}
 	
 		// return if order is valid and successful
