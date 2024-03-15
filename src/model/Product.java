@@ -1,4 +1,4 @@
-package model;
+	package model;
 
 	public class Product {
 		private String name;
@@ -76,14 +76,14 @@ package model;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
+	public boolean equals(Object object) {
+		if (this == object)
 			return true;
-		if (obj == null)
+		if (object == null)
 			return false;
-		if (getClass() != obj.getClass())
+		if (getClass() != object.getClass())
 			return false;
-		Product other = (Product) obj;
+		Product other = (Product) object;
 		if (barcode != other.barcode)
 			return false;
 		if (countryOfOrigin == null) {

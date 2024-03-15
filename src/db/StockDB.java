@@ -1,4 +1,4 @@
-package db;
+	package db;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -52,16 +52,16 @@ public class StockDB implements StockDAO {
 		}
 	}
 
-	private Product buildObject(ResultSet rs) throws SQLException {
-		Product p = new Product(
-				rs.getString("name"),
-				rs.getFloat("purchase_price"),
-				rs.getFloat("sales_price"),
-				rs.getFloat("rent_price"),
-				rs.getString("country_of_origin"),
-				rs.getInt("min_stock"),
-				rs.getInt("barcode"));
-		return p;
+	private Product buildObject(ResultSet resultSet) throws SQLException {
+		Product product = new Product(
+				resultSet.getString("name"),
+				resultSet.getFloat("purchase_price"),
+				resultSet.getFloat("sales_price"),
+				resultSet.getFloat("rent_price"),
+				resultSet.getString("country_of_origin"),
+				resultSet.getInt("min_stock"),
+				resultSet.getInt("barcode"));
+		return product;
 	}
 
 }
